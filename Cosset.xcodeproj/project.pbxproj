@@ -11,7 +11,7 @@
 		904237DBB534D0A84CDFA6A3 /* Pods_CossetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89190D98D63B9CFF7E86582 /* Pods_CossetTests.framework */; };
 		96C7CE1E1C3AFA7F005D49F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7CE1D1C3AFA7F005D49F0 /* AppDelegate.swift */; };
 		96C7CE201C3AFA7F005D49F0 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7CE1F1C3AFA7F005D49F0 /* NearbyViewController.swift */; };
-		96C7CE221C3AFA7F005D49F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7CE211C3AFA7F005D49F0 /* DetailViewController.swift */; };
+		96C7CE221C3AFA7F005D49F0 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C7CE211C3AFA7F005D49F0 /* AppointmentViewController.swift */; };
 		96C7CE251C3AFA7F005D49F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C7CE231C3AFA7F005D49F0 /* Main.storyboard */; };
 		96C7CE271C3AFA7F005D49F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C7CE261C3AFA7F005D49F0 /* Assets.xcassets */; };
 		96C7CE2A1C3AFA7F005D49F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C7CE281C3AFA7F005D49F0 /* LaunchScreen.storyboard */; };
@@ -47,7 +47,7 @@
 		96C7CE1A1C3AFA7F005D49F0 /* Cosset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cosset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C7CE1D1C3AFA7F005D49F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96C7CE1F1C3AFA7F005D49F0 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
-		96C7CE211C3AFA7F005D49F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		96C7CE211C3AFA7F005D49F0 /* AppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
 		96C7CE241C3AFA7F005D49F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96C7CE261C3AFA7F005D49F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96C7CE291C3AFA7F005D49F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				96C7CE1F1C3AFA7F005D49F0 /* NearbyViewController.swift */,
-				96C7CE211C3AFA7F005D49F0 /* DetailViewController.swift */,
+				96C7CE211C3AFA7F005D49F0 /* AppointmentViewController.swift */,
 				96C7CE1D1C3AFA7F005D49F0 /* AppDelegate.swift */,
 			);
 			name = Controllers;
@@ -470,7 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C7CE531C3B1308005D49F0 /* User.swift in Sources */,
-				96C7CE221C3AFA7F005D49F0 /* DetailViewController.swift in Sources */,
+				96C7CE221C3AFA7F005D49F0 /* AppointmentViewController.swift in Sources */,
 				96C7CE201C3AFA7F005D49F0 /* NearbyViewController.swift in Sources */,
 				96C7CE1E1C3AFA7F005D49F0 /* AppDelegate.swift in Sources */,
 				96C7CE551C3B143F005D49F0 /* Appointment.swift in Sources */,

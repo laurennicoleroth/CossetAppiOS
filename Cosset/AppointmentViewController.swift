@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  AppointmentViewController.swift
 //  Cosset
 //
 //  Created by Lauren Nicole Roth on 1/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class AppointmentViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 

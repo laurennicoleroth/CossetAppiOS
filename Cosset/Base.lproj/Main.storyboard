@@ -24,7 +24,7 @@
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="Cosset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="JEX-9P-axG" customClass="AppointmentViewController" customModule="Cosset" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -42,7 +42,7 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPl-2G-SkY">
                                 <rect key="frame" x="0.0" y="72" width="375" height="245"/>
-                                <color key="backgroundColor" patternImage="C9708D36-2601-471A-B83B-57C35B950D18" colorSpace="pattern"/>
+                                <color key="backgroundColor" patternImage="370E2EFC-0803-4E2A-9122-83C7910770EC" colorSpace="pattern"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appointment Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-su-AXn">
                                 <rect key="frame" x="100" y="350" width="156" height="21"/>
@@ -144,7 +144,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C9708D36-2601-471A-B83B-57C35B950D18" width="512" height="512">
+        <image name="370E2EFC-0803-4E2A-9122-83C7910770EC" width="512" height="512">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
