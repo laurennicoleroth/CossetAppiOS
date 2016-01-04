@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  NearbyViewController.swift
 //  Cosset
 //
 //  Created by Lauren Nicole Roth on 1/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class NearbyViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
