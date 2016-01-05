@@ -14,7 +14,7 @@ class NearbyViewController: UITableViewController {
     
     //MARK: Constants
     let listAppointments = "ListAppointments"
-    let apppointmentsRef = Firebase(url: "https://cosset.firebaseio.com/appointments")
+    let appointmentsRef = Firebase(url: "https://cosset.firebaseio.com/appointments")
     let now = NSDate()
     var date = NSDate()
 
@@ -27,7 +27,7 @@ class NearbyViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apppointmentsRef.observeEventType(.Value, withBlock: { snapshot in
+        appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
             print(snapshot.value)
             }, withCancelBlock: { error in
                 print(error.description)
@@ -51,6 +51,14 @@ class NearbyViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value)
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,7 +77,7 @@ class NearbyViewController: UITableViewController {
             self.appointments.append(appointment)
             
             
-            let bookedRef = self.apppointmentsRef.childByAppendingPath(textField.text!)
+            let bookedRef = self.appointmentsRef.childByAppendingPath(textField.text!)
             
             bookedRef.setValue(appointment.toAnyObject())
             
