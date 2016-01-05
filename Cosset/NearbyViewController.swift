@@ -10,15 +10,24 @@ import UIKit
 import Firebase
 
 class NearbyViewController: UITableViewController {
-
-    var appointmentViewController: AppointmentViewController? = nil
-    var appointments = [Appointment]()
-    let rootRef = Firebase(url: "https://cosset.firebaseio.com/")
+    
+    //MARK: Constants
+    let listAppointments = "ListAppointments"
+    let rootRef = Firebase(url: "https://cosset.firebaseio.com/laurennicoleroth")
     let date = NSDate()
     let formatter = NSDateFormatter()
+
+    //MARK: Properties
+    var appointmentViewController: AppointmentViewController? = nil
+    var appointments = [Appointment]()
+    var user: User!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Setup swipe to delete
+        tableView.allowsMultipleSelectionDuringEditing = false
         
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -52,8 +61,15 @@ class NearbyViewController: UITableViewController {
             (action: UIAlertAction!) -> Void in
             
             let textField = alert.textFields![0] 
-            let appointment = Appointment(startTime: NSDate(), endTime: NSDate(), type: textField.text!, booked: true)
+            let appointment = Appointment(startTime: "1pm", endTime: "2pm", type: textField.text!, booked: true, bookedByUser: "laurennicoleroth")
             self.appointments.append(appointment)
+            
+            
+            let appointmentRef = self.rootRef.childByAppendingPath(textField.text!)
+            
+            appointmentRef.setValue(appointment.toAnyObject())
+            
+            
             print(self.appointments)
             print(self.appointments.count)
             self.tableView.reloadData()
