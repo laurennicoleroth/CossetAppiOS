@@ -8,14 +8,15 @@
 
 import UIKit
 import Firebase
+import AFDateHelper
 
 class NearbyViewController: UITableViewController {
     
     //MARK: Constants
     let listAppointments = "ListAppointments"
-    let rootRef = Firebase(url: "https://cosset.firebaseio.com/laurennicoleroth")
-    let date = NSDate()
-    let formatter = NSDateFormatter()
+    let apppointmentsRef = Firebase(url: "https://cosset.firebaseio.com/appointments")
+    let now = NSDate()
+    var date = NSDate()
 
     //MARK: Properties
     var appointmentViewController: AppointmentViewController? = nil
@@ -25,6 +26,12 @@ class NearbyViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        apppointmentsRef.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value)
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
         
         //Setup swipe to delete
         tableView.allowsMultipleSelectionDuringEditing = false
@@ -52,22 +59,19 @@ class NearbyViewController: UITableViewController {
 
     func insertNewObject(sender: AnyObject) {
         
-        print("plus button pressed")
-        print(rootRef)
-        
-        var alert = UIAlertController(title: "Appointment", message: "Add an appointment", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Add Appointment", message: "Haircut, Massage, Manicure, etc...", preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) {
             (action: UIAlertAction!) -> Void in
             
-            let textField = alert.textFields![0] 
-            let appointment = Appointment(startTime: "1pm", endTime: "2pm", type: textField.text!, booked: true, bookedByUser: "laurennicoleroth")
+            let textField = alert.textFields![0]
+            let appointment = Appointment(startTime: self.date.toString(format: .ISO8601(ISO8601Format.DateTimeMilliSec)), endTime: self.date.toString(format: .ISO8601(ISO8601Format.DateTimeMilliSec)), type: textField.text!, booked: true, bookedByUser: "laurennicoleroth")
             self.appointments.append(appointment)
             
             
-            let appointmentRef = self.rootRef.childByAppendingPath(textField.text!)
+            let bookedRef = self.apppointmentsRef.childByAppendingPath(textField.text!)
             
-            appointmentRef.setValue(appointment.toAnyObject())
+            bookedRef.setValue(appointment.toAnyObject())
             
             
             print(self.appointments)
