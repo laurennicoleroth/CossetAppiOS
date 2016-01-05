@@ -13,7 +13,7 @@ class NearbyViewController: UITableViewController {
 
     var appointmentViewController: AppointmentViewController? = nil
     var appointments = [Appointment]()
-    let ref = Firebase(url: "https://cosset.firebaseio.com/")
+    let rootRef = Firebase(url: "https://cosset.firebaseio.com/")
     let date = NSDate()
     let formatter = NSDateFormatter()
     
@@ -42,6 +42,10 @@ class NearbyViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
+        
+        print("plus button pressed")
+        print(rootRef)
+        
         var alert = UIAlertController(title: "Appointment", message: "Add an appointment", preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) {
@@ -50,11 +54,14 @@ class NearbyViewController: UITableViewController {
             let textField = alert.textFields![0] 
             let appointment = Appointment(startTime: NSDate(), endTime: NSDate(), type: textField.text!, booked: true)
             self.appointments.append(appointment)
+            print(self.appointments)
+            print(self.appointments.count)
             self.tableView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
             (action: UIAlertAction!) -> Void in
+            print("cancel pressed")
         }
         
         alert.addTextFieldWithConfigurationHandler {
@@ -65,7 +72,6 @@ class NearbyViewController: UITableViewController {
         alert.addAction(cancelAction)
         
         presentViewController(alert, animated: true, completion: nil)
-
     }
 
     // MARK: - Segues
@@ -90,6 +96,7 @@ class NearbyViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appointments.count
+        print(appointments.count)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
