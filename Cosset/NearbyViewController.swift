@@ -28,9 +28,7 @@ class NearbyViewController: UITableViewController {
         super.viewDidLoad()
         
         appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
             }, withCancelBlock: { error in
-                print(error.description)
         })
         
         //Setup swipe to delete
@@ -53,10 +51,25 @@ class NearbyViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // 1
         appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
-            }, withCancelBlock: { error in
-                print(error.description)
+            
+            // 2
+            var newAppointments = [Appointment]()
+            
+            // 3
+            for appointment in snapshot.children {
+                
+                print(appointment)
+                let appointment = Appointment(snapshot: appointment as! FDataSnapshot)
+                newAppointments.append(appointment)
+            }
+            
+            // 5
+            self.appointments = newAppointments
+            self.tableView.reloadData()
         })
     }
 
@@ -73,23 +86,19 @@ class NearbyViewController: UITableViewController {
             (action: UIAlertAction!) -> Void in
             
             let textField = alert.textFields![0]
-            let appointment = Appointment(startTime: self.date.toString(format: .ISO8601(ISO8601Format.DateTimeMilliSec)), endTime: self.date.toString(format: .ISO8601(ISO8601Format.DateTimeMilliSec)), type: textField.text!, booked: true, bookedByUser: "laurennicoleroth")
+            let appointment = Appointment(startTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), endTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), type: textField.text!, booked: true, bookedByUser: "laurennicoleroth")
             self.appointments.append(appointment)
             
             
             let bookedRef = self.appointmentsRef.childByAppendingPath(textField.text!)
             
             bookedRef.setValue(appointment.toAnyObject())
-            
-            
-            print(self.appointments)
-            print(self.appointments.count)
+        
             self.tableView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
             (action: UIAlertAction!) -> Void in
-            print("cancel pressed")
         }
         
         alert.addTextFieldWithConfigurationHandler {
@@ -107,7 +116,7 @@ class NearbyViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let appointment = appointments[indexPath.row] as! NSDate
+                let appointment = appointments[indexPath.row] as! AnyObject
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! AppointmentViewController
                 controller.detailItem = appointment
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()

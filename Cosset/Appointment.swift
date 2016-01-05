@@ -28,6 +28,16 @@ struct Appointment {
         self.bookedByUser = bookedByUser
     }
     
+    init(snapshot: FDataSnapshot) {
+        key = snapshot.key
+        startTime = snapshot.value["startTime"] as! String
+        endTime = snapshot.value["endTime"] as! String
+        type = snapshot.value["type"] as! String
+        booked = snapshot.value["booked"] as! Bool
+        ref = snapshot.ref
+        bookedByUser = snapshot.value["bookedByUser"] as! String
+    }
+    
     func toAnyObject() -> AnyObject {
         return [
             "startTime": startTime,
