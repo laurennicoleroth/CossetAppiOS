@@ -18,14 +18,14 @@ struct Appointment {
     let booked: Bool!
     let bookedByUser: String
     
-    init(startTime: String, endTime: String, type: String, booked: Bool = false, key: String = "", bookedByUser: String = "") {
+    init(startTime: String, endTime: String, type: String, booked: Bool = false, key: String = "", bookedByUser: String) {
         self.key = key
         self.startTime = startTime
         self.endTime = endTime
         self.type = type
         self.booked = booked
         self.ref = nil
-        self.bookedByUser = ""
+        self.bookedByUser = bookedByUser
     }
     
     func toAnyObject() -> AnyObject {
