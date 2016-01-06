@@ -42,7 +42,7 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPl-2G-SkY">
                                 <rect key="frame" x="0.0" y="72" width="375" height="245"/>
-                                <color key="backgroundColor" patternImage="D3DAAB56-6DC8-4601-AF58-030E104D0EF0" colorSpace="pattern"/>
+                                <color key="backgroundColor" patternImage="D9B71531-A16B-4601-A392-3480108D0181" colorSpace="pattern"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Appointment Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-su-AXn">
                                 <rect key="frame" x="100" y="350" width="156" height="21"/>
@@ -144,7 +144,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D3DAAB56-6DC8-4601-AF58-030E104D0EF0" width="512" height="512">
+        <image name="D9B71531-A16B-4601-A392-3480108D0181" width="512" height="512">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
