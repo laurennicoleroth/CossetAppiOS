@@ -15,7 +15,7 @@ struct Appointment {
     let endTime: String
     let type: String!
     let ref: Firebase?
-    let booked: Bool!
+    var booked: Bool!
     let bookedByUser: String
     
     init(startTime: String, endTime: String, type: String, booked: Bool = false, key: String = "", bookedByUser: String) {

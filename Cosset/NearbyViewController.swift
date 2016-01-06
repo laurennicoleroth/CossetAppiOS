@@ -86,7 +86,7 @@ class NearbyViewController: UITableViewController {
             (action: UIAlertAction!) -> Void in
             
             let textField = alert.textFields![0]
-            let appointment = Appointment(startTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), endTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), type: textField.text!, booked: true, bookedByUser: "laurennicoleroth")
+            let appointment = Appointment(startTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), endTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), type: textField.text!, booked: false, bookedByUser: "laurennicoleroth")
             self.appointments.append(appointment)
             
             
@@ -111,20 +111,6 @@ class NearbyViewController: UITableViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
 
-    // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let appointment = appointments[indexPath.row] as! AnyObject
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! AppointmentViewController
-                controller.detailItem = appointment
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
-
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -146,11 +132,13 @@ class NearbyViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
+
         let appointment = appointments[indexPath.row]
+
         let toggledBooking = !appointment.booked
-        
+
         toggleCellCheckbox(cell, isBooked: toggledBooking)
-        
+
         appointment.ref?.updateChildValues([
             "booked": toggledBooking
             ])
@@ -158,10 +146,12 @@ class NearbyViewController: UITableViewController {
     
     func toggleCellCheckbox(cell: UITableViewCell, isBooked: Bool) {
         if !isBooked {
+            print("available")
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.textLabel?.textColor = UIColor.blackColor()
             cell.detailTextLabel?.textColor = UIColor.blackColor()
         } else {
+            print("isBooked")
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             cell.textLabel?.textColor = UIColor.grayColor()
             cell.detailTextLabel?.textColor = UIColor.grayColor()
