@@ -142,7 +142,31 @@ class NearbyViewController: UITableViewController {
         cell.textLabel!.text = appointment.key
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
+        let cell = tableView.cellForRowAtIndexPath(indexPath)!
+        let appointment = appointments[indexPath.row]
+        let toggledBooking = !appointment.booked
+        
+        toggleCellCheckbox(cell, isBooked: toggledBooking)
+        
+        appointment.ref?.updateChildValues([
+            "booked": toggledBooking
+            ])
+    }
+    
+    func toggleCellCheckbox(cell: UITableViewCell, isBooked: Bool) {
+        if !isBooked {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.textLabel?.textColor = UIColor.blackColor()
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.detailTextLabel?.textColor = UIColor.grayColor()
+        }
+    }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
