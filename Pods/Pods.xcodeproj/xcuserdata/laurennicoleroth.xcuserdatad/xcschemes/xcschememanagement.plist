@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFDateHelper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3828597806DEAE02510B8C0739C9A42F</key>
+		<key>1FB146CE528DCC65220831E79E897618</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5502C6BA49DA68672E288C86CB587996</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,12 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F089ABEE6B9CC679D9213B93D2D5D24</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>87EBCEF966B091246415633DC91E7E0E</key>
+		<key>63660DFB551BF0B9F0AF1FC164A4C335</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>F5ACF367AE3BD7A7F2AF2D430901DF7B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F65B5FC465EEAE8D06DA022115DFDF17</key>
 		<dict>
 			<key>primary</key>
 			<true/>

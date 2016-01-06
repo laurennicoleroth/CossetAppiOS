@@ -5,6 +5,7 @@ target 'Cosset' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
+  pod 'AFDateHelper'
 end
 
 target 'CossetTests' do
@@ -12,6 +13,7 @@ target 'CossetTests' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
+  pod 'AFDateHelper'  
 end
 
 target 'CossetUITests' do
@@ -19,4 +21,5 @@ target 'CossetUITests' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
+  pod 'AFDateHelper'
 end

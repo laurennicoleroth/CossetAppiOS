@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3CB2CDFF5DB773C159D3790B'
+               BlueprintIdentifier = '6DE1258FBAC4FB6B3D7C11F8'
                BlueprintName = 'Pods-Cosset'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Cosset.framework'>

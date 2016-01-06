@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-CossetTests/AFDateHelper.framework"
   install_framework "Pods-CossetTests/Bolts.framework"
   install_framework "Pods-CossetTests/FBSDKCoreKit.framework"
   install_framework "Pods-CossetTests/FBSDKLoginKit.framework"
@@ -91,6 +92,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CossetTests/Firebase.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-CossetTests/AFDateHelper.framework"
   install_framework "Pods-CossetTests/Bolts.framework"
   install_framework "Pods-CossetTests/FBSDKCoreKit.framework"
   install_framework "Pods-CossetTests/FBSDKLoginKit.framework"
