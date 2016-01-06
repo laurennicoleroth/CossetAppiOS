@@ -153,6 +153,11 @@ class NearbyViewController: UITableViewController {
         if editingStyle == .Delete {
             appointments.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            let appointment = appointments[indexPath.row]
+            appointment.ref?.removeValue()
+            
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
