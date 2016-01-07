@@ -11,6 +11,8 @@ import UIKit
 class AppointmentViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var serviceProviderName: UILabel!
+    @IBOutlet weak var serviceTypeLabel: UILabel!
 
 
     var detailItem: AnyObject? {

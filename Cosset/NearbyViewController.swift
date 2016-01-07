@@ -29,7 +29,9 @@ class NearbyViewController: UITableViewController {
         
         appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
             }, withCancelBlock: { error in
+  
         })
+
         
         //Setup swipe to delete
         tableView.allowsMultipleSelectionDuringEditing = false
@@ -43,6 +45,7 @@ class NearbyViewController: UITableViewController {
             let controllers = split.viewControllers
             self.appointmentViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? AppointmentViewController
         }
+
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -50,22 +53,18 @@ class NearbyViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
+
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-
-        appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
-            
-            var newAppointments = [Appointment]()
-            
+        appointmentsRef.queryOrderedByChild("startTime").observeEventType(.Value, withBlock: { snapshot in
+            var bookedAppointments = [Appointment]()
             for appointment in snapshot.children {
-                
-                print(appointment)
                 let appointment = Appointment(snapshot: appointment as! FDataSnapshot)
-                newAppointments.append(appointment)
+                bookedAppointments.append(appointment)
             }
-            
-            self.appointments = newAppointments
+            self.appointments = bookedAppointments
             self.tableView.reloadData()
         })
     }
@@ -122,7 +121,7 @@ class NearbyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let appointment = appointments[indexPath.row] 
-        cell.textLabel!.text = appointment.key
+        cell.textLabel!.text = appointment.startTime + ": " + appointment.key
         return cell
     }
     
@@ -143,12 +142,12 @@ class NearbyViewController: UITableViewController {
     
     func toggleCellCheckbox(cell: UITableViewCell, isBooked: Bool) {
         if !isBooked {
-            print("available")
+
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.textLabel?.textColor = UIColor.blackColor()
             cell.detailTextLabel?.textColor = UIColor.blackColor()
         } else {
-            print("isBooked")
+
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             cell.textLabel?.textColor = UIColor.grayColor()
             cell.detailTextLabel?.textColor = UIColor.grayColor()
