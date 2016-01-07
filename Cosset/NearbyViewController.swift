@@ -53,13 +53,11 @@ class NearbyViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // 1
+
         appointmentsRef.observeEventType(.Value, withBlock: { snapshot in
             
-            // 2
             var newAppointments = [Appointment]()
             
-            // 3
             for appointment in snapshot.children {
                 
                 print(appointment)
@@ -67,7 +65,6 @@ class NearbyViewController: UITableViewController {
                 newAppointments.append(appointment)
             }
             
-            // 5
             self.appointments = newAppointments
             self.tableView.reloadData()
         })
