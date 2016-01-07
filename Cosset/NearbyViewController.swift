@@ -82,7 +82,7 @@ class NearbyViewController: UITableViewController {
             (action: UIAlertAction!) -> Void in
             
             let textField = alert.textFields![0]
-            let appointment = Appointment(startTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), endTime: self.date.toString(format: .Custom("dd MMM yyyy HH:mm:ss")), type: textField.text!, booked: false, bookedByUser: "laurennicoleroth")
+            let appointment = Appointment(startTime: self.date.toString(format: .Custom("HH:mm")), endTime: self.date.toString(format: .Custom("HH:mm")), type: textField.text!, booked: false, bookedByUser: "laurennicoleroth")
             self.appointments.append(appointment)
             
             
@@ -121,7 +121,7 @@ class NearbyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let appointment = appointments[indexPath.row] 
-        cell.textLabel!.text = appointment.startTime + ": " + appointment.key
+        cell.textLabel!.text = appointment.startTime + " " + appointment.key
         return cell
     }
     
